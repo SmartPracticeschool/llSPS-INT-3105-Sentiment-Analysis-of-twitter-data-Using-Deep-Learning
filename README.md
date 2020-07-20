@@ -32,6 +32,16 @@ Flask web application to make predictions.
 <b>python libraries used:</b>Pandas, Numpy, pickle<br>
 <b>NLP libraries used:</b>NLTK, CountVectorizer<br>
 
+# Outputs
+
+<b>Example of positive Sentiment :</b><br> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="Screenshots/happyinput.png" width="400" height="200">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="Screenshots/happy_output" width="400" height="200">
+<br>
 # contributors
 
 Project done by <br>
