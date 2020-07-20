@@ -1,0 +1,308 @@
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sentimental Analysis of twitter data</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+     <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <link href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet"> 
+	
+	<style>
+	.bg-dark {
+		background-color: #42678c!important;
+	}
+	#result {
+		color: #0a1c4ed1;
+	}
+	
+	h3.weight{
+
+    	font-family:Arial,Helvetica,sans-serif;
+    	font-weight: bold;
+	}
+	
+	p.weight{
+
+    	font-family:Arial,Helvetica,sans-serif;
+    	
+	}
+	
+        .img-preview {
+    width: 286px;
+    height: 286px;
+     position:relative;
+    left: 450px;
+    border: 5px solid #F8F8F8;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+    margin-top: 1em;
+    margin-bottom: 1em;    
+}
+
+section{
+
+   position: relative;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background: url(https://i.pinimg.com/originals/35/81/e9/3581e9f7e1a8b4fbcfd85028951047b9.jpg);
+   background-attachment: fixed;
+   height: 230vh;
+ 
+
+
+}
+        
+
+section .descript{
+
+    position: relative;
+    max-width:800px;
+    left:200px;
+    height:600px;
+    padding: 50px;
+    box-shadow: 0 5px 15px rgba(0,0,0,.5);
+    overflow: hidden;
+    color:#000; 
+}
+
+section .descript:before{
+
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    right: -20px;
+    bottom: -20px; 
+    background: #333;
+    background-attachment: fixed;
+    opacity: 0.6;
+   
+}
+
+section .descript h3{
+    position:relative;
+    margin: 0 0 20px;
+    padding: 0;
+    font-size: 30px;
+    text-transform: uppercase;
+    z-index:2;
+      color: white;
+    
+}
+
+section .descript p{
+
+    position:relative;
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+    z-index:2;
+      color: white;
+    
+}
+
+
+section .upload{
+    margin: 20;
+    display:inline-block;
+    position:relative;
+    left: 180px;
+    align-items: center;
+    width:500px;
+    height:200px;
+    padding: 25px;
+    box-shadow: 0 5px 15px rgba(0,0,0,.5);
+    color:#000; 
+    z-index: 2;
+    
+
+}
+
+section .upload h1{
+
+
+     position:relative;
+    margin: 0 0 20px;
+    padding: 0;
+    font-size: 20px; 
+     
+    z-index:2;
+      color: white;
+}
+
+section .upload:before{
+
+    content: '';
+    margin: 20px;
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    right: -20px;
+    bottom: -20px; 
+    background: #333;
+    background-attachment: fixed;
+    opacity: 0.4;
+   
+}
+
+section .predict{
+        position: relative;
+    left:450px;
+
+}
+
+.img-preview>div {
+    width: 100%;
+    height: 100%;
+    background-size: 256px 256px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+
+
+.upload-label{
+    display: inline-block;
+    padding: 12px 30px;    
+     position:relative;
+    left: 500px;
+    background: #fff;
+    color: #000000;
+    font-size: 1em;
+    transition: all .4s;
+    cursor: pointer;
+}
+
+.upload-label:hover{
+    background: black;
+    color: #f3f3f3;
+       
+}
+
+section .loader {
+    border: 8px solid #f3f3f3; /* Light grey */
+    border-top: 8px solid #3498db; /* Blue */
+    border-radius: 50%;
+    position: relative;
+    left:450px;
+    width: 100px;
+    height: 50px;
+    animation: spin 5s linear infinite;
+
+}
+
+  
+	</style>
+	
+</head>
+
+<body>
+
+    <!NAV BAR CONTAINING THE HEADING>
+    <nav class="navbar navbar-dark bg-dark sticky-top" >
+        <div class="container">
+            <a class="navbar-brand" href="#"><b>SENTIMENTAL ANALYSIS OF TWITTER DATA - DEEP LEARNING</b></a>
+        </div>
+    </nav>
+
+<section>
+    <div class="box">
+    <div class="container">
+        <div id="content" style="margin-top:2em">
+		<div class="container">
+		  <div class="row">
+			<div class="descript" >
+			  <h3 class="weight">TYPE THE TWEET BELOW WHICH YOU WANT TO KNOW THE SENTIMENT!   </h3>
+			  <br>
+			  <p class="weight">
+                
+                      <img src="https://pngimg.com/uploads/twitter/twitter_PNG28.png" height="200px" width="200px">
+                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <img src="https://i.pinimg.com/originals/6c/aa/38/6caa38a6954ef94b5d2f72da66f94335.png" height="180px" width="180px">
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <img src="https://images-na.ssl-images-amazon.com/images/I/711NDQNFqxL.png" height="170px" width="170px">
+                  <br>
+                   <b> &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; positive tweets
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                    negative tweets</b>
+                    <br>
+                    <br>
+                  
+                  Twitter is popular nowadays to express opinions about different topics such as products,movies
+                   music, politicians, Social events and so on with the help of tweets and sentimental analysis model.
+                   This page aims to determine the sentiment which you typed and it classifies tweets as positive/negative.
+                    <br>
+                    
+                   
+                </p>
+                
+        
+			</div>
+              <div>
+               <br>
+                <br>
+                
+      
+                <div class="form">
+                
+			<form action="{{ url_for('y_predict')}}" method="post">
+			
+				<p><input type="text" class= "btn" name="Message" placeholder="Enter your message"  required="required" size="1000" width="48" height="48" /></p>
+				
+				<button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+			</form>
+			
+            <div class="result">
+                {% if err|length %}
+		    <h2 style="color:#fff;"> Error : {{err}} </h2>
+		{% else %}
+		    <img width="250" height="250" src="{{ result }}" alt="result">
+		{% endif %}
+	   </div>
+     
+      
+                  </div>
+			<div>
+				<div class="align">
+                    
+				 <div class="upload"> <h1>Project Done by <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.K.NaveenKumar<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.Susitha<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.Varshini<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.Swetha<br>AI Intern project - 2 </h1>   
+                    
+                
+                    </div>
+			 <br>
+                     <br>
+                    
+                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <img src="https://thesmartbridge.com/documents/thesmartbridge.png" height="100px" width="100px">
+                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <img src="https://static1.squarespace.com/static/5623a379e4b04bb42a19b10d/5747c18f1d07c0e3dec1a2ae/574db5fb1bbee0e44e3944b1/1464710685906/IBM+high.jpg?format=2500w" height="80px" width="135px">
+                    <br>
+                
+		</div>
+			</div>
+			 
+		  </div>
+		</div>
+		</div>
+    </div>
+    </div>
+    </section>
+</body>
+
+
+
+</html>
