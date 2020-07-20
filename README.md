@@ -17,6 +17,13 @@ Flask web application to make predictions.
 <b>Category:</b>Deep learning<br>
 <b>concepts:</b>NLP, Sentimental analysis <br>
 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="https://wallpaperaccess.com/full/1728953.jpg" width="200" height="100">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="https://datasciencechalktalk.files.wordpress.com/2019/07/0-8.png?w=1070" width="200" height="100">
+
 # Languages and framework used
 
 <b>languages used : </b>python, HTML, CSS, Bootstrap<br>
