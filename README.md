@@ -3,6 +3,9 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;
 <img src="Screenshots/home_page.png" width="800" height="400">
+<br>
+<br>
+<a href="https://sentimental007.herokuapp.com/">To view the main page our project click here!</a>
 
 # project description
 
