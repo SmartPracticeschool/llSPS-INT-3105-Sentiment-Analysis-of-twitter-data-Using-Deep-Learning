@@ -13,7 +13,7 @@ Twitter has grown in popularity during the past decades. It is now used by milli
 
 # Solution
 The model takes the text as input, pre-processes the text and sends it to the neural network. The neural network classifies the text as 0 or 1 based on whether the text is negative or positive respectively. Using this the sentiment of the person who is sending the tweet can be understood and tweet can be analysed.Then we integrated the model with
-Flask web application to make predictions.
+Flask web application to make predictions.Finally, we deployed our FLASK app in heroku platform. 
 
 # Core concepts
 
