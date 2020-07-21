@@ -34,6 +34,7 @@ Flask web application to make predictions.Finally, we deployed our FLASK app in 
 <b>AI frameworks used : </b>Keras, Tensorflow<br>
 <b>python libraries used:</b>Pandas, Numpy, pickle<br>
 <b>NLP libraries used:</b>NLTK, CountVectorizer<br>
+<b>For deployment :</b>Heroku platform(Salesforces cloud)<br>
 
 # Outputs
 
